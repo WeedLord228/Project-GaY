@@ -5,26 +5,26 @@ import java.util.LinkedList;
 
 public class Handler {
 
-    LinkedList<GameObject> object = new LinkedList<GameObject>();
+    LinkedList<GameObject> operatableObjects = new LinkedList<GameObject>();
     private boolean up=false, down=false, right=false, left=false;
 
 
     public void tick() {
-        for (int i = 0; i < object.size(); i++) {
-            GameObject tempObject = object.get(i);
+        for (int i = 0; i < operatableObjects.size(); i++) {
+            GameObject tempObject = operatableObjects.get(i);
             tempObject.tick();
         }
     }
 
     public void render(Graphics g) {
-        for (int i = 0; i < object.size(); i++) {
-            GameObject tempObject = object.get(i);
+        for (int i = 0; i < operatableObjects.size(); i++) {
+            GameObject tempObject = operatableObjects.get(i);
             tempObject.render(g);
         }
     }
 
     public void addObject(GameObject tempObject){
-        object.add(tempObject);
+        operatableObjects.add(tempObject);
     }
 
     public boolean isUp() {
@@ -60,7 +60,7 @@ public class Handler {
     }
 
     public void removeObject(GameObject tempObject){
-        object.remove(tempObject);
+        operatableObjects.remove(tempObject);
     }
 
 

@@ -4,8 +4,11 @@ import java.awt.*;
 
 public abstract class GameObject {
 
+    //Координаты объекта относительно окна
     protected int x,y;
+    //Скорость объекта
     protected float velX=0 , velY=0;
+    //Тип объекта
     protected ID id;
 
 

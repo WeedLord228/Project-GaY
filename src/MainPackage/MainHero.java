@@ -2,11 +2,11 @@ package MainPackage;
 
 import java.awt.*;
 
-public class Main_hero extends GameObject {
+public class MainHero extends GameObject {
 
     Handler handler;
 
-    public Main_hero(int x, int y, ID id , Handler handler) {
+    public MainHero(int x, int y, ID id , Handler handler) {
         super(x, y, id);
         this.handler = handler;
     }
@@ -14,7 +14,7 @@ public class Main_hero extends GameObject {
     public void tick() {
         x+=velX;
         y+=velY;
-        //эта конструкция описывает движение. Поиграться с костантами!
+        //эта конструкция описывает движение. TODO Поиграться с костантами!
         if(handler.isUp()) velY = -5;
         else if(!handler.isDown()) velY = 0;
 
@@ -33,6 +33,7 @@ public class Main_hero extends GameObject {
         g.fillRect(x,y,20,20);
     }
 
+    //Определяет размеры нашего игрока
     public Rectangle getBounds() {
         return new Rectangle(x,y,20 , 20);
     }
