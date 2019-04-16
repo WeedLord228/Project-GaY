@@ -16,11 +16,13 @@ public class Rock extends GameObject {
 
     @Override
     public void render(Graphics g) {
+        g.setColor(Color.YELLOW);
+        g.fillRect(x,y,32,32);
 
     }
 
     @Override
     public Rectangle getBounds() {
-        return null;
+        return new Rectangle(x,y,32,32);
     }
 }

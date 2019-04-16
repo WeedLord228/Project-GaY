@@ -14,6 +14,9 @@ public class MainHero extends GameObject {
     public void tick() {
         x+=velX;
         y+=velY;
+
+        collision();
+
         //эта конструкция описывает движение. TODO Поиграться с костантами!
         if(handler.isUp()) velY = -5;
         else if(!handler.isDown()) velY = 0;
@@ -28,13 +31,30 @@ public class MainHero extends GameObject {
         else if(!handler.isLeft()) velX = 0;
     }
 
+    private void collision()
+    {
+        for (GameObject obj : handler.operatableObjects)
+        {
+            GameObject tempObj = obj;
+            if (tempObj.getId() == ID.Rock)
+            {
+                if (getBounds().intersects(tempObj.getBounds()));
+                {
+                    x += velX * -1;
+                    y += velY * -1;
+                }
+            }
+        }
+    }
+
     public void render(Graphics g) {
         g.setColor(Color.MAGENTA);
         g.fillRect(x,y,20,20);
     }
 
     //Определяет размеры нашего игрока
-    public Rectangle getBounds() {
+    public Rectangle getBounds()
+    {
         return new Rectangle(x,y,20 , 20);
     }
 }
