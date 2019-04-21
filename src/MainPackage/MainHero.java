@@ -33,16 +33,16 @@ public class MainHero extends GameObject {
 
     private void collision()
     {
-        for (GameObject obj : handler.operatableObjects)
+        for (int i = 0; i < handler.operatableObjects.size(); i++)
         {
-            GameObject tempObj = obj;
+            GameObject tempObj = handler.operatableObjects.get(i);
+
             if (tempObj.getId() == ID.Rock)
+                if (this.getBounds().intersects(tempObj.getBounds()))
             {
-                if (getBounds().intersects(tempObj.getBounds()));
-                {
-                    x += velX * -1;
-                    y += velY * -1;
-                }
+                if (this.getBounds().)
+                x += velX * -1;
+                y += velY * -1;
             }
         }
     }

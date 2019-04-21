@@ -34,12 +34,12 @@ public class KeyInput extends KeyAdapter {
             GameObject tempObject = handler.operatableObjects.get(i);
 
             if(tempObject.getId() == ID.Player){
-                if(key == KeyEvent.VK_W) handler.setUp(false);
-                if(key == KeyEvent.VK_S) handler.setDown(false);
-                if(key == KeyEvent.VK_A) handler.setLeft(false);
-                if(key == KeyEvent.VK_D) handler.setRight(false);
-            }
+            if(key == KeyEvent.VK_W) handler.setUp(false);
+            if(key == KeyEvent.VK_S) handler.setDown(false);
+            if(key == KeyEvent.VK_A) handler.setLeft(false);
+            if(key == KeyEvent.VK_D) handler.setRight(false);
         }
+    }
 
     }
 

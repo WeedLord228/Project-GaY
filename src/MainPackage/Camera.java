@@ -8,14 +8,15 @@ public class Camera {
     public Camera(float x, float y){
         this.x = x;
         this.y = y;
-
-        if (x)
     }
 
     public void tick(GameObject object)
     {
         x += ((object.getX() - x) - 1000/2) * 0.05f;
-        y += ((object.getY() - y) - 563/2) * 0.05;
+        y += ((object.getY() - y) - 563/2) * 0.05f;
+
+        if (x <= 0) x=0;
+        if (x >= 1032) x = 1032;
     }
 
     public float getX() {
