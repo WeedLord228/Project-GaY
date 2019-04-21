@@ -22,7 +22,7 @@ public class Game extends Canvas implements Runnable{
         this.addKeyListener(new KeyInput(handler));
 
         BufferedImageLoader loader = new BufferedImageLoader();
-        map = loader.loadImage("/Map.png");
+        map = loader.loadImage("assets/Map.png");
 
         loadLevel(map);
     }

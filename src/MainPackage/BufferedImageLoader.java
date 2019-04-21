@@ -13,7 +13,7 @@ public class BufferedImageLoader {
     {
         try
         {
-            image = ImageIO.read(getClass().getResource(path));
+            image = ImageIO.read(new File(path));
         } catch (IOException e)
         {
             e.printStackTrace();
