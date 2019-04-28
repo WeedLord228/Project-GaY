@@ -19,52 +19,57 @@ public class MainHero extends GameObject {
 
         //эта конструкция описывает движение. TODO Поиграться с костантами!
 
-        if (handler.isUp()) {
-            if (handler.isDown()) {
-                velY = 0;
-                return;
-            }
-            if (handler.isLeft()) {
-                velY = -2f;
-                velX = -2f;
-                return;
-            }
-            if (handler.isRight()) {
-                velY = -2f;
-                velX = 2f;
-                return;
-            }
-            velY = -4;
+
+        if (handler.isUp() && handler.isRight()) {
+            velY = -3f;
+            velX = 3f;
             return;
+        } else if (!handler.isUp() && !handler.isRight()) {
+            velX = 0;
+            velY = 0;
+        }
+
+        if (handler.isDown() && handler.isRight()) {
+            velY = 3f;
+            velX = 3f;
+            return;
+        } else if (!handler.isDown() && !handler.isRight()) {
+            velX = 0;
+            velY = 0;
+        }
+
+        if (handler.isUp() && handler.isLeft()) {
+            velY = -3f;
+            velX = -3f;
+            return;
+        } else if (!handler.isUp() && !handler.isLeft()) {
+            velX = 0;
+            velY = 0;
+        }
+
+        if (handler.isDown() && handler.isLeft()) {
+            velY = 3f;
+            velX = -3;
+            return;
+        } else if (!handler.isDown() && !handler.isLeft()) {
+            velX = 0;
+            velY = 0;
+        }
+
+        if (handler.isUp()) {
+            velY = -4f;
         } else if (!handler.isDown()) velY = 0;
 
         if (handler.isDown()) {
-            if (handler.isUp()) {
-                velY = 0;
-                return;
-            }
-            if (handler.isLeft()) {
-                velY = 2f;
-                velX = -2f;
-                return;
-            }
-            if (handler.isRight()) {
-                velY = 2f;
-                velX = 2f;
-                return;
-            }
             velY = 4;
-            return;
         } else if (!handler.isUp()) velY = 0;
 
         if (handler.isLeft()) {
             velX = -4;
-            return;
         } else if (!handler.isRight()) velX = 0;
 
         if (handler.isRight()) {
             velX = 4;
-            return;
         } else if (!handler.isLeft()) velX = 0;
     }
 
@@ -74,6 +79,25 @@ public class MainHero extends GameObject {
 
             if (tempObj.getId() == ID.Rock)
                 if (this.getBounds().intersects(tempObj.getBounds())) {
+//                    if (a = (this.getBounds().intersection(tempObj.getBounds()).getX() == tempObj.getX() ||
+//                            this.getBounds().intersection(tempObj.getBounds()).getX() + tempObj.getBounds().width == tempObj.getX() + tempObj.getBounds().width)) {
+//                        x += velX * -1;
+//                        return;
+//                    }
+//
+//                    if ( b = (this.getBounds().intersection(tempObj.getBounds()).getY() == tempObj.getY() ||
+//                            this.getBounds().intersection(tempObj.getBounds()).getY()+tempObj.getBounds().height == tempObj.getY()+tempObj.getBounds().height) ){
+//                        y += velY *-1;
+//
+//                     if (a && b){
+
+//                    if ((this.getBounds().getY() + this.getBounds().height) > (tempObj.getBounds().getY() - tempObj.getBounds().height)) y+= velY *-1;
+//
+//                    if ((this.getBounds().getY() - this.getBounds().height) < (tempObj.getBounds().getY() + tempObj.getBounds().height)) y+= velY *-1;
+//
+//                    if ((this.getBounds().getX() + this.getBounds().width) > (tempObj.getBounds().getX() - tempObj.getBounds().width)) x+= velX *-1;
+//
+//                    if ((this.getBounds().getX() - this.getBounds().width) < (tempObj.getBounds().getX() + tempObj.getBounds().width)) x+= velX *-1;
                     x += velX * -1;
                     y += velY * -1;
                 }
