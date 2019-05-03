@@ -20,6 +20,7 @@ public class Game extends Canvas implements Runnable{
         handler = new Handler();
         camera = new Camera(0,0);
         this.addKeyListener(new KeyInput(handler));
+        this.addMouseListener(new MouseInput(handler,camera));
 
         BufferedImageLoader loader = new BufferedImageLoader();
         map = loader.loadImage("assets/Map.png");
@@ -122,6 +123,7 @@ public class Game extends Canvas implements Runnable{
                 int red = (pixel >> 16) & 0xff;
                 int green = (pixel >> 8) & 0xff;
                 int blue = (pixel) & 0xff;
+
 
                 if(blue == 255)
                     handler.addObject(new Rock(x*32,y*32,ID.Rock));

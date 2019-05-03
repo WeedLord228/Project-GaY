@@ -79,25 +79,7 @@ public class MainHero extends GameObject {
 
             if (tempObj.getId() == ID.Rock)
                 if (this.getBounds().intersects(tempObj.getBounds())) {
-//                    if (a = (this.getBounds().intersection(tempObj.getBounds()).getX() == tempObj.getX() ||
-//                            this.getBounds().intersection(tempObj.getBounds()).getX() + tempObj.getBounds().width == tempObj.getX() + tempObj.getBounds().width)) {
-//                        x += velX * -1;
-//                        return;
-//                    }
-//
-//                    if ( b = (this.getBounds().intersection(tempObj.getBounds()).getY() == tempObj.getY() ||
-//                            this.getBounds().intersection(tempObj.getBounds()).getY()+tempObj.getBounds().height == tempObj.getY()+tempObj.getBounds().height) ){
-//                        y += velY *-1;
-//
-//                     if (a && b){
 
-//                    if ((this.getBounds().getY() + this.getBounds().height) > (tempObj.getBounds().getY() - tempObj.getBounds().height)) y+= velY *-1;
-//
-//                    if ((this.getBounds().getY() - this.getBounds().height) < (tempObj.getBounds().getY() + tempObj.getBounds().height)) y+= velY *-1;
-//
-//                    if ((this.getBounds().getX() + this.getBounds().width) > (tempObj.getBounds().getX() - tempObj.getBounds().width)) x+= velX *-1;
-//
-//                    if ((this.getBounds().getX() - this.getBounds().width) < (tempObj.getBounds().getX() + tempObj.getBounds().width)) x+= velX *-1;
                     x += velX * -1;
                     y += velY * -1;
                 }
