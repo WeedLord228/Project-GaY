@@ -5,4 +5,5 @@ public enum  ID {
     Player(),
     Rock(),
     Bullet(),
+    Enemy()
 }

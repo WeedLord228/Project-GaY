@@ -1,11 +1,12 @@
 package MainPackage;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Handler {
 
-    LinkedList<GameObject> operatableObjects = new LinkedList<GameObject>();
+    public ArrayList<GameObject> operatableObjects = new ArrayList<GameObject>();
     private boolean up=false, down=false, right=false, left=false;
 
 

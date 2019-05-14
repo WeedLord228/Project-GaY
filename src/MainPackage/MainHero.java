@@ -5,6 +5,8 @@ import java.awt.*;
 public class MainHero extends GameObject {
 
     Handler handler;
+    int healtPoints;
+    int hp = 100;
 
     public MainHero(int x, int y, ID id, Handler handler) {
         super(x, y, id);
@@ -17,8 +19,12 @@ public class MainHero extends GameObject {
 
         collision();
 
-        //эта конструкция описывает движение. TODO Поиграться с костантами!
+        if (hp <= 0) {
+            handler.removeObject(this);
+        }
 
+
+        //эта конструкция описывает движение.
 
         if (handler.isUp() && handler.isRight()) {
             velY = -3f;
@@ -83,6 +89,10 @@ public class MainHero extends GameObject {
                     x += velX * -1;
                     y += velY * -1;
                 }
+
+            if (tempObj.getId() == ID.Enemy)
+                if (this.getBounds().intersects(tempObj.getBounds()))
+                    hp-=10;
         }
     }
 
