@@ -28,15 +28,12 @@ public class Bullet extends GameObject {
                     handler.removeObject(this);
                 }
         }
-
     }
-
 
     public void render(Graphics g) {
         g.setColor(Color.GREEN);
         g.fillOval(x,y,8,8);
     }
-
 
     public Rectangle getBounds() {
         return new Rectangle(x,y,8,8);
