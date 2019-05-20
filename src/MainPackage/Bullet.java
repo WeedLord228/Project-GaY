@@ -14,9 +14,7 @@ public class Bullet extends GameObject {
 
 
     public void tick() {
-
-        x+=velX;
-        y+=velY;
+        if (handler.isCanMove()) move();
 
         for (int i = 0; i < handler.operatableObjects.size(); i++)
         {
@@ -37,5 +35,11 @@ public class Bullet extends GameObject {
 
     public Rectangle getBounds() {
         return new Rectangle(x,y,8,8);
+    }
+
+    @Override
+    public void move() {
+        x+=velX;
+        y+=velY;
     }
 }

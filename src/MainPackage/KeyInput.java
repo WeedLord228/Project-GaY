@@ -14,6 +14,8 @@ public class KeyInput extends KeyAdapter {
     public void keyPressed(KeyEvent e){
         int key = e.getKeyCode();
 
+        handler.setCanMove(true);
+
         for(int i = 0; i<handler.operatableObjects.size() ; i++){
             GameObject tempObject = handler.operatableObjects.get(i);
 
@@ -40,6 +42,7 @@ public class KeyInput extends KeyAdapter {
             if(key == KeyEvent.VK_D) handler.setRight(false);
             }
     }
+        handler.setCanMove(handler.isDown() || handler.isUp() || handler.isLeft() || handler.isRight());
 
     }
 

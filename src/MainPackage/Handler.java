@@ -8,6 +8,7 @@ public class Handler {
 
     public ArrayList<GameObject> operatableObjects = new ArrayList<GameObject>();
     private boolean up=false, down=false, right=false, left=false;
+    private boolean canMove = false;
 
 
     public void tick() {
@@ -65,4 +66,11 @@ public class Handler {
     }
 
 
+    public boolean isCanMove() {
+        return canMove;
+    }
+
+    public void setCanMove(boolean canMove) {
+        this.canMove = canMove;
+    }
 }

@@ -8,6 +8,10 @@ public class Rock extends GameObject {
         super(x, y, id);
     }
 
+    public void move() {
+
+    }
+
     public void tick() {
     }
 
@@ -19,4 +23,6 @@ public class Rock extends GameObject {
     public Rectangle getBounds() {
         return new Rectangle(x,y,32,32);
     }
+
+
 }

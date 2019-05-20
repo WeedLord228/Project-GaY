@@ -13,18 +13,12 @@ public class MainHero extends GameObject {
         this.handler = handler;
     }
 
-    public void tick() {
-        x += velX;
-        y += velY;
+    @Override
+    public void move() {
+        x+=velX;
+        y+=velY;
 
         collision();
-
-        if (hp <= 0) {
-            handler.removeObject(this);
-        }
-
-
-        //эта конструкция описывает движение.
 
         if (handler.isUp() && handler.isRight()) {
             velY = -3f;
@@ -77,6 +71,23 @@ public class MainHero extends GameObject {
         if (handler.isRight()) {
             velX = 4;
         } else if (!handler.isLeft()) velX = 0;
+    }
+
+    public void tick() {
+//        x += velX;
+//        y += velY;
+        move();
+
+
+
+        if (hp <= 0) {
+            handler.removeObject(this);
+        }
+
+
+        //эта конструкция описывает движение.
+
+
     }
 
     private void collision() {

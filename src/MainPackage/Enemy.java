@@ -16,9 +16,14 @@ public class Enemy extends GameObject {
     }
 
     @Override
+    public void move() {
+        x+=velX;
+        y+=velY;
+    }
+
+    @Override
     public void tick() {
-        x += velX;
-        y += velY;
+        if (handler.isCanMove()) move();
 
         choose = r.nextInt(10);
 
@@ -32,21 +37,17 @@ public class Enemy extends GameObject {
                     velX = -1;
                     velY = -1;
                 }
-//                else{
-//                    x +=
-//                }
-//                } else if (choose == 0) {
-//                    velX = (r.nextInt(2 - -4) + -4);
-//                    velY = (r.nextInt(2 - -4) + -4);
-//                }
-            }
-            if (tempObject.getId() == ID.Player)
-            {
-                double angle = Math.atan2(tempObject.x - x,tempObject.y - y);
-                if (angle < 0) angle += 2 * Math.PI;
-                x+=  2 * Math.cos(angle);
-                y+= -2 * Math.sin(angle);
-            }
+                } else if (choose == 0) {
+                    velX = (r.nextInt(2 - -4) + -4);
+                    velY = (r.nextInt(2 - -4) + -4);
+                }
+//            if (tempObject.getId() == ID.Player)
+//            {
+//                double angle = Math.atan2(tempObject.x - x,tempObject.y - y);
+//                if (angle < 0) angle += 2 * Math.PI;
+//                x+=  2 * Math.cos(angle);
+//                y+= -2 * Math.sin(angle);
+//            }
             if (tempObject.getId() == ID.Bullet) {
                 if (getBounds().intersects(tempObject.getBounds())) {
                     hp -= 50;
@@ -54,6 +55,7 @@ public class Enemy extends GameObject {
                 }
             }
         }
+
         if (hp <= 0)
             handler.removeObject(this);
     }
