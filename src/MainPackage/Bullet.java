@@ -10,6 +10,8 @@ public class Bullet extends GameObject {
 
         velX = (mx -x) / 10;
         velY = (my - y) / 10;
+//        velX = (float)Math.sqrt((mx - x)*(mx - x) + (my - y)*(my - y))/10;
+//        velY = (float)Math.sqrt((mx - x)*(mx - x) + (my - y)*(my - y))/10;
     }
 
 

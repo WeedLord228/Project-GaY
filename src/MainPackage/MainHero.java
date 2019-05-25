@@ -5,7 +5,6 @@ import java.awt.*;
 public class MainHero extends GameObject {
 
     Handler handler;
-    int healtPoints;
     int hp = 100;
 
     public MainHero(int x, int y, ID id, Handler handler) {
@@ -74,20 +73,14 @@ public class MainHero extends GameObject {
     }
 
     public void tick() {
-//        x += velX;
-//        y += velY;
+        x += velX;
+        y += velY;
         move();
-
-
 
         if (hp <= 0) {
             handler.removeObject(this);
         }
-
-
         //эта конструкция описывает движение.
-
-
     }
 
     private void collision() {
@@ -109,11 +102,11 @@ public class MainHero extends GameObject {
 
     public void render(Graphics g) {
         g.setColor(Color.MAGENTA);
-        g.fillOval(x, y, 20, 20);
+        g.fillOval(x, y, 50, 50);
     }
 
     //Определяет размеры нашего игрока
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 20, 20);
+        return new Rectangle(x, y, 50, 50);
     }
 }
