@@ -13,6 +13,7 @@ public class Game extends Canvas implements Runnable{
     private Camera camera;
 
     private BufferedImage map = null;
+    private BufferedImage spriteSheet=null;
 
     public Game(){
         new Window(1000 , 563 , "Grave and Yellow" , this);
