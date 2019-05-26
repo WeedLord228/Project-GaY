@@ -11,6 +11,7 @@ public class Game extends Canvas implements Runnable{
     private Thread thread;
     public Handler handler;
     private Camera camera;
+    private MainHero hero;
 
     private BufferedImage map = null;
     private BufferedImage spriteSheet=null;
@@ -20,13 +21,14 @@ public class Game extends Canvas implements Runnable{
         start();
         handler = new Handler();
         camera = new Camera(0,0);
-        this.addKeyListener(new KeyInput(handler));
-        this.addMouseListener(new MouseInput(handler,camera));
 
         BufferedImageLoader loader = new BufferedImageLoader();
         map = loader.loadImage("assets/Map.png");
 
         loadLevel(map);
+
+        this.addKeyListener(new KeyInput(handler));
+        this.addMouseListener(new MouseInput(handler,camera,hero));
     }
 
     private void start(){
@@ -130,7 +132,7 @@ public class Game extends Canvas implements Runnable{
                     handler.addObject(new Rock(x*32,y*32,ID.Rock));
 
                 if (green == 255)
-                    handler.addObject(new MainHero(x*32,y*32,ID.Player,handler));
+                    handler.addObject(hero = new MainHero(x*32,y*32,ID.Player,handler));
 
                 if (red == 255)
                     handler.addObject(new MeeleEnemy(x*32,y*32,ID.Enemy,handler));
