@@ -8,10 +8,17 @@ public class Bullet extends GameObject {
         super(x, y, id);
         this.handler = handler;
 
-        velX = (mx -x) / 10;
-        velY = (my - y) / 10;
-//        velX = (float)Math.sqrt((mx - x)*(mx - x) + (my - y)*(my - y))/10;
-//        velY = (float)Math.sqrt((mx - x)*(mx - x) + (my - y)*(my - y))/10;
+        setSpeed(mx,my);
+    }
+
+    public void setSpeed(int tx,int ty) {
+        int diffX=  tx - x;
+        int diffY= ty - y;
+
+        float norm = (float) Math.sqrt(diffX*diffX + diffY*diffY);
+
+        velX = (float) diffX*(30/norm);
+        velY = (float) diffY*(30/norm);
     }
 
 

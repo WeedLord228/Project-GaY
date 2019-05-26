@@ -16,14 +16,10 @@ public class MeeleEnemy extends GameObject {
 
 
     public void getDirection(GameObject object) {
-//        int diffX = velX;
-//        int diffY = moveToY - y;
         int diffX= object.x - x;
         int diffY= object.y - y;
 
-//        float angle = (float)Math.atan2(diffX, diffY);
         float norm = (float) Math.sqrt(diffX*diffX + diffY*diffY);
-
 
         velX = (diffX *= (2.5/norm));
         velY = (diffY *= (2.5/norm));

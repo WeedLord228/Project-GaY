@@ -6,6 +6,8 @@ public class MainHero extends GameObject {
 
     Handler handler;
     int hp = 100;
+    private boolean canShoot = true;
+    private int timer;
 
     public MainHero(int x, int y, ID id, Handler handler) {
         super(x, y, id);
@@ -73,6 +75,10 @@ public class MainHero extends GameObject {
     }
 
     public void tick() {
+        if (handler.isCanMove()) tickTimer();
+
+        if (timer >= 20) resetTimer();
+
         x += velX;
         y += velY;
         move();
@@ -80,7 +86,6 @@ public class MainHero extends GameObject {
         if (hp <= 0) {
             handler.removeObject(this);
         }
-        //эта конструкция описывает движение.
     }
 
     private void collision() {
@@ -108,5 +113,24 @@ public class MainHero extends GameObject {
     //Определяет размеры нашего игрока
     public Rectangle getBounds() {
         return new Rectangle(x, y, 50, 50);
+    }
+
+    public void tickTimer()
+    {
+        timer++;
+    }
+
+    public void resetTimer()
+    {
+        timer=0;
+        setCanShoot(true);
+    }
+
+    public boolean isCanShoot() {
+        return canShoot;
+    }
+
+    public void setCanShoot(boolean canShoot) {
+        this.canShoot = canShoot;
     }
 }
