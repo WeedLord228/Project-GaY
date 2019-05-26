@@ -72,10 +72,13 @@ public class MeeleEnemy extends GameObject {
             }
         }
         
-//        if (object.id == ID.Player)
-//        {
-//
-//        }
+        if (object.id == ID.Enemy)
+        {
+            if ((object != this) && this.getBounds().intersects(object.getBounds())) {
+                x += -1 * velX*2;
+                y += -1 * velY*2;
+            }
+        }
     }
 
     @Override

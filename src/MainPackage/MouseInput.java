@@ -13,15 +13,15 @@ public class MouseInput extends MouseAdapter {
         this.camera = camera;
     }
 
-    public void mouseDragged(MouseEvent e)
-    {
-        for (int i = 0; i < handler.operatableObjects.size();i++)
-        {
-            GameObject tempObject = handler.operatableObjects.get(i);
-
-            tempObject.move();
-            }
-    }
+//    public void mouseDragged(MouseEvent e)
+//    {
+//        for (int i = 0; i < handler.operatableObjects.size();i++)
+//        {
+//            GameObject tempObject = handler.operatableObjects.get(i);
+//
+//            tempObject.move();
+//            }
+//    }
 
 
     public void mousePressed(MouseEvent m)
