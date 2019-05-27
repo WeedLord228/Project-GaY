@@ -16,8 +16,9 @@ public class Rock extends GameObject {
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.YELLOW);
-        g.fillRect(x,y,32,32);
+        g.drawImage(ss.grabImage(1), x,y,null);
+//        g.setColor(Color.YELLOW);
+//        g.fillRect(x,y,32,32);
     }
 
     public Rectangle getBounds() {

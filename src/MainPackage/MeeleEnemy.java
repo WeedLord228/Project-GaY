@@ -21,8 +21,8 @@ public class MeeleEnemy extends GameObject {
 
         float norm = (float) Math.sqrt(diffX*diffX + diffY*diffY);
 
-        velX = (diffX *= (2.5/norm));
-        velY = (diffY *= (2.5/norm));
+        velX = (diffX *= (3.5/norm));
+        velY = (diffY *= (3.5/norm));
     }
 
     @Override
@@ -79,8 +79,9 @@ public class MeeleEnemy extends GameObject {
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.red);
-        g.fillOval(x, y, 25, 25);
+        g.drawImage(ss.grabImage(3), x,y,null);
+//        g.setColor(Color.red);
+//        g.fillOval(x, y, 25, 25);
 
 //        Graphics2D g2d = (Graphics2D) g;
 //

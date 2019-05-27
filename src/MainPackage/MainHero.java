@@ -106,13 +106,14 @@ public class MainHero extends GameObject {
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.MAGENTA);
-        g.fillOval(x, y, 50, 50);
+        g.drawImage(ss.grabImage(2),x,y,null);
+//        g.setColor(Color.MAGENTA);
+//        g.fillOval(x, y, 50, 50);
     }
 
     //Определяет размеры нашего игрока
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 50, 50);
+        return new Rectangle(x, y, 32, 32);
     }
 
     public void tickTimer()

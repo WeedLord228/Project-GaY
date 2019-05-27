@@ -28,6 +28,17 @@ public class MouseInput extends MouseAdapter {
 //    }
 
 
+
+//    public void mouseMoved(MouseEvent m)
+//    {
+//        for (int i = 0; i < handler.operatableObjects.size();i++)
+//        {
+//            GameObject tempObject = handler.operatableObjects.get(i);
+//
+//            tempObject.move();
+//            }
+//    }
+
     public void mousePressed(MouseEvent m)
     {
         if (hero.isCanShoot()) {
