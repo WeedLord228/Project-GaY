@@ -12,9 +12,11 @@ public class Game extends Canvas implements Runnable{
     public Handler handler;
     private Camera camera;
     private MainHero hero;
+    private SpriteSheet ss;
 
     private BufferedImage map = null;
     private BufferedImage spriteSheet=null;
+    private BufferedImage floor=null;
 
     public Game(){
         new Window(1000 , 563 , "Grave and Yellow" , this);
@@ -24,11 +26,16 @@ public class Game extends Canvas implements Runnable{
 
         BufferedImageLoader loader = new BufferedImageLoader();
         map = loader.loadImage("assets/Map.png");
+        spriteSheet = loader.loadImage("assets/spriteshit.png");
+
+        ss = new SpriteSheet(spriteSheet);
+
+        floor = ss.grabImage(4);
 
         loadLevel(map);
 
         this.addKeyListener(new KeyInput(handler));
-        this.addMouseListener(new MouseInput(handler,camera,hero));
+        this.addMouseListener(new MouseInput(handler,camera,hero,ss));
     }
 
     private void start(){
@@ -99,10 +106,18 @@ public class Game extends Canvas implements Runnable{
         Graphics g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D)g;
         //////////////////////////////////
-        g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(0,0,1000,563);
+//        g.setColor(Color.LIGHT_GRAY);
+//        g.fillRect(0,0,1000,563);
 
         g2d.translate(-camera.getX(),-camera.getY());
+
+        for (int xx = 0; xx < 30*72; xx+=32)
+        {
+            for(int yy = 0; yy < 30*72; yy+=32)
+            {
+                g.drawImage(floor,xx,yy,null);
+            }
+        }
 
         handler.render(g);
 
@@ -129,13 +144,13 @@ public class Game extends Canvas implements Runnable{
 
 
                 if(blue == 255)
-                    handler.addObject(new Rock(x*32,y*32,ID.Rock));
+                    handler.addObject(new Rock(x*32,y*32,ID.Rock,ss));
 
                 if (green == 255)
-                    handler.addObject(hero = new MainHero(x*32,y*32,ID.Player,handler));
+                    handler.addObject(hero = new MainHero(x*32,y*32,ID.Player,handler,ss));
 
                 if (red == 255)
-                    handler.addObject(new MeeleEnemy(x*32,y*32,ID.Enemy,handler));
+                    handler.addObject(new MeeleEnemy(x*32,y*32,ID.Enemy,handler,ss));
             }
     }
 

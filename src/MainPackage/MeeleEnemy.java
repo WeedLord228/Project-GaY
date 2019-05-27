@@ -9,8 +9,8 @@ public class MeeleEnemy extends GameObject {
     int hp = 100;
 
 
-    public MeeleEnemy(int x, int y, ID id, Handler handler) {
-        super(x, y, id);
+    public MeeleEnemy(int x, int y, ID id, Handler handler,SpriteSheet ss) {
+        super(x, y, id,ss);
         this.handler = handler;
     }
 

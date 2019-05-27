@@ -7,12 +7,14 @@ public class MouseInput extends MouseAdapter {
     private Handler handler;
     private Camera camera;
     private MainHero hero;
+    private SpriteSheet ss;
 
-    public MouseInput(Handler handler,Camera camera,MainHero hero)
+    public MouseInput(Handler handler,Camera camera,MainHero hero,SpriteSheet ss)
     {
         this.handler = handler;
         this.camera = camera;
         this.hero = hero;
+        this.ss = ss;
     }
 
 //    public void mouseDragged(MouseEvent e)
@@ -40,7 +42,7 @@ public class MouseInput extends MouseAdapter {
                 tempObject.move();
 
                 if (tempObject.getId() == ID.Player) {
-                    handler.addObject(new Bullet(tempObject.getX() + 16, tempObject.getY() + 24, ID.Bullet, handler, mx, my));
+                    handler.addObject(new Bullet(tempObject.getX() + 16, tempObject.getY() + 24, ID.Bullet, handler, mx, my, ss));
                 }
             }
         }

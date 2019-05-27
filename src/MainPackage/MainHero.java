@@ -9,8 +9,8 @@ public class MainHero extends GameObject {
     private boolean canShoot = true;
     private int timer;
 
-    public MainHero(int x, int y, ID id, Handler handler) {
-        super(x, y, id);
+    public MainHero(int x, int y, ID id, Handler handler,SpriteSheet ss) {
+        super(x, y, id,ss);
         this.handler = handler;
     }
 

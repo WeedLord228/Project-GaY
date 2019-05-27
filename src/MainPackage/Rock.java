@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class Rock extends GameObject {
 
-    public Rock(int x, int y, ID id) {
-        super(x, y, id);
+    public Rock(int x, int y, ID id,SpriteSheet ss) {
+        super(x, y, id,ss);
     }
 
     public void move() {
