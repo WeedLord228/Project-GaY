@@ -6,10 +6,15 @@ public class SpawnPoint extends GameObject {
     static int enemiesLimit;
     static int ememiesCount;
 
+
+
     Handler handler;
 
-    public SpawnPoint(int x, int y, ID id,SpriteSheet ss) {
+    public SpawnPoint(int x, int y, ID id,Handler handler,SpriteSheet ss) {
+
         super(x, y, id,ss);
+        enemiesLimit = 10;
+        this.handler = handler;
     }
 
     public void move() {
@@ -17,7 +22,8 @@ public class SpawnPoint extends GameObject {
     }
 
     public void tick() {
-
+        if (getEnemiesCount() < 5)
+        handler.addObject(new MeeleEnemy(x,y,ID.Enemy,handler,ss));
     }
 
     public void render(Graphics g) {
@@ -29,7 +35,7 @@ public class SpawnPoint extends GameObject {
 //        return new Rectangle(x,y,32,32);
     }
 
-    public void getEnemiesCount()
+    public int getEnemiesCount()
     {
         int c = 0;
         for (int i = 0; i < handler.operatableObjects.size(); i++)
@@ -38,7 +44,7 @@ public class SpawnPoint extends GameObject {
             if(object.id == ID.Enemy)
             c++;
         }
-        enemiesLimit= c;
+        return c;
     }
 
 }

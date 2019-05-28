@@ -14,6 +14,7 @@ public class Game extends Canvas implements Runnable{
     private MainHero hero;
     private SpriteSheet ss;
 
+
     private BufferedImage map = null;
     private BufferedImage spriteSheet=null;
     private BufferedImage floor=null;
@@ -92,6 +93,10 @@ public class Game extends Canvas implements Runnable{
             camera.tick(handler.operatableObjects.get(i));
         }
 
+        if (hero.getHp() <= 0) {
+            isRunning = false;
+        }
+
         handler.tick();
     }
 
@@ -150,7 +155,11 @@ public class Game extends Canvas implements Runnable{
                     handler.addObject(hero = new MainHero(x*32,y*32,ID.Player,handler,ss));
 
                 if (red == 255)
-                    handler.addObject(new MeeleEnemy(x*32,y*32,ID.Enemy,handler,ss));
+                    handler.addObject(new SpawnPoint(x*32,y*32,ID.SpawnPoint,handler,ss));
+//                    handler.addObject(new MeeleEnemy(x*32,y*32,ID.Enemy,handler,ss));
+
+//                if (red == 170 && green == 170)
+//                    handler.addObject(new SpawnPoint(x*32,y*32,ID.SpawnPoint,handler,ss));
             }
     }
 

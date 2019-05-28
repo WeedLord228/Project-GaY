@@ -1,11 +1,12 @@
 package MainPackage;
 
 import java.awt.*;
+import java.lang.reflect.GenericArrayType;
 
 public class MainHero extends GameObject {
 
     Handler handler;
-    int hp = 100;
+    private int hp = 100;
     private boolean canShoot = true;
     private int timer;
 
@@ -101,7 +102,7 @@ public class MainHero extends GameObject {
 
             if (tempObj.getId() == ID.Enemy)
                 if (this.getBounds().intersects(tempObj.getBounds()))
-                    hp-=10;
+                    getHit();
         }
     }
 
@@ -126,6 +127,10 @@ public class MainHero extends GameObject {
         timer=0;
         setCanShoot(true);
     }
+    public void getHit()
+    {
+        hp-=10;
+    }
 
     public boolean isCanShoot() {
         return canShoot;
@@ -133,5 +138,15 @@ public class MainHero extends GameObject {
 
     public void setCanShoot(boolean canShoot) {
         this.canShoot = canShoot;
+    }
+
+    public int getHp()
+    {
+        return hp;
+    }
+
+    public int getTimer()
+    {
+        return timer;
     }
 }
