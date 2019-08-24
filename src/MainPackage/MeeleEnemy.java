@@ -1,7 +1,6 @@
 package MainPackage;
 
 import java.awt.*;
-import java.util.Random;
 
 public class MeeleEnemy extends GameObject {
 
@@ -9,26 +8,26 @@ public class MeeleEnemy extends GameObject {
     int hp = 100;
 
 
-    public MeeleEnemy(int x, int y, ID id, Handler handler,SpriteSheet ss) {
-        super(x, y, id,ss);
+    public MeeleEnemy(int x, int y, ID id, Handler handler, SpriteSheet ss) {
+        super(x, y, id, ss);
         this.handler = handler;
     }
 
 
     public void getDirection(GameObject object) {
-        int diffX= object.x - x;
-        int diffY= object.y - y;
+        int diffX = object.x - x;
+        int diffY = object.y - y;
 
-        float norm = (float) Math.sqrt(diffX*diffX + diffY*diffY);
+        float norm = (float) Math.sqrt(diffX * diffX + diffY * diffY);
 
-        velX = (diffX *= (3.5/norm));
-        velY = (diffY *= (3.5/norm));
+        velX = (diffX *= (3.5 / norm));
+        velY = (diffY *= (3.5 / norm));
     }
 
     @Override
     public void move() {
-        x +=velX;
-        y +=velY;
+        x += velX;
+        y += velY;
     }
 
     @Override
@@ -39,19 +38,18 @@ public class MeeleEnemy extends GameObject {
             GameObject tempObject = handler.operatableObjects.get(i);
 
             collision(tempObject);
-            
-                if (tempObject.getId() == ID.Player && handler.isCanMove()) {
-                    getDirection(tempObject);
-                    move();
-                }
-            }
 
-            if (hp <= 0)
-                handler.removeObject(this);
+            if (tempObject.getId() == ID.Player && handler.isCanMove()) {
+                getDirection(tempObject);
+                move();
+            }
+        }
+
+        if (hp <= 0)
+            handler.removeObject(this);
     }
 
-    public void collision(GameObject object)
-    {
+    public void collision(GameObject object) {
         if (object.id == ID.Rock) {
             if (getBoundsBig().intersects(object.getBounds())) {
                 x += (-velX * 5) * -1;
@@ -67,19 +65,18 @@ public class MeeleEnemy extends GameObject {
                 handler.removeObject(object);
             }
         }
-        
-        if (object.id == ID.Enemy)
-        {
+
+        if (object.id == ID.Enemy) {
             if ((object != this) && this.getBounds().intersects(object.getBounds())) {
-                x += -1 * velX*2;
-                y += -1 * velY*2;
+                x += -1 * velX * 2;
+                y += -1 * velY * 2;
             }
         }
     }
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(ss.grabImage(3), x,y,null);
+        g.drawImage(ss.grabImage(3), x, y, null);
 //        g.setColor(Color.red);
 //        g.fillOval(x, y, 25, 25);
 

@@ -94,7 +94,7 @@ public class Tests {
         assertEquals(0,bullet.getX());
         assertEquals(30,bullet.getY());
     }
-    
+
 //    @Test
 //    public void MainHeroMove2() {
 //        MainHero mh = new MainHero(1,1,ID.Player,null,null);

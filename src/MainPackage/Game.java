@@ -93,9 +93,9 @@ public class Game extends Canvas implements Runnable{
             camera.tick(handler.operatableObjects.get(i));
         }
 
-        if (hero.getHp() <= 0) {
-            isRunning = false;
-        }
+//        if (hero.getHp() <= 0) {
+//            isRunning = false;
+//        }
 
         handler.tick();
     }
